@@ -2,14 +2,21 @@ import { Link } from "react-router-dom";
 import { MdManageSearch } from "react-icons/md";
 import { useState, useEffect } from "react";
 import { BsSun, BsMoon } from "react-icons/bs"; // Icone sole e luna
+import { FaBars, FaTimes } from "react-icons/fa"; // Icone hamburger e chiusura
 import "./navbar.css";
 
 const Navbar = () => {
+  //con true sn on con false sn out
   const user = false;
   const [darkMode, setDarkMode] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
+  };
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   useEffect(() => {
@@ -33,7 +40,13 @@ const Navbar = () => {
         />
       </div>
 
-      <div className="flex items-center space-x-3 md:space-x-4">
+      <div className="flex items-center md:hidden">
+        <button onClick={toggleMenu} className="p-2">
+          {isMenuOpen ? <FaTimes className="text-2xl" /> : <FaBars className="text-2xl" />}
+        </button>
+      </div>
+
+      <div className={`flex items-center space-x-3 md:space-x-4 ${isMenuOpen ? "flex" : "hidden"} md:flex`}>
         <div className="relative">
           <MdManageSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400 transition-colors duration-700" />
           <input

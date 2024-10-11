@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom"; // Ensure you import Link
+import Footer from "../components/footer/Footer";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -67,8 +68,11 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };
 
 export default Login;
+
+///23 23

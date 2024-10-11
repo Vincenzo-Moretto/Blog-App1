@@ -123,3 +123,14 @@ button:hover {
 .text-2xl {
   font-size: 1.5rem;
 }
+@media (max-width: 768px) {
+  .hidden {
+    display: none;
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  /* Add any additional styles for your mobile menu */
+}
